@@ -1,18 +1,20 @@
 ﻿// See https://aka.ms/new-console-template for more information
 /*
- 两层循环，一层拼接一层生成
+ 先判断是否第一位，再生成密码；每次循环仅生成一位
  */
 using System;
 
 string password = "+";
 int passwdLen = 8;
+string passwd;
 char[] spChars = { '$', '~', '!', '@', '#','%','^','&','`','-' };
 Console.WriteLine("随机生成密码");
-while(passwdLen == password.Length)
+while(passwdLen == passwd.Length)
 {
-    string passwd;
-    Random rupC = new Random();
-    char upC = (char)rupC.Next(65, 90);
+    if (passwd.Length % 4 == 0)
+    {
+        Random rupC = new Random();
+        char upC = (char)rupC.Next(65, 90);
 
     Random rlowC = new Random();
     char lowC = (char)rlowC.Next(97, 122);
@@ -32,34 +34,29 @@ while(passwdLen == password.Length)
         passwd = string.Concat(upC);
     }
 
-    if (password == "+")
+    if (passwd.Length % 4 == 0)
     {
-        passwd = Convert.ToString(lowC);
-    }
-    else
-    {
+        Random rlowC = new Random();
+        char lowC = (char)rlowC.Next(97, 122);
         passwd = string.Concat(lowC);
     }
 
-    if (password == "+")
+    if (passwd.Length % 4 == 0)
     {
-        passwd = Convert.ToString(numC);
-    }
-    else
-    {
+        Random r = new Random();
+        int num = r.Next(10);
+        string numC = num.ToString();
         passwd = string.Concat(numC);
     }
-    if (password == "+")
+    if (passwd.Length % 4 == 0)
     {
-        passwd = Convert.ToString(spC);
-    }
-    else
-    {
+        Random r = new Random();
+        int num = r.Next(10);
+        char spC = spChars[num];
         passwd = string.Concat(spC);
     }
 
-    password = passwd;
-}
+    
 
 
-Console.WriteLine("选中并单击右键以复制密码\n" + password);
+Console.WriteLine("选中并单击右键以复制密码\n" + passwd);
