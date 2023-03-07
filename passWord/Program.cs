@@ -6,12 +6,12 @@ using System;
 
 string password = "+";
 int passwdLen = 8;
-string passwd;
+string passwd = "";
 char[] spChars = { '$', '~', '!', '@', '#','%','^','&','`','-' };
 Console.WriteLine("随机生成密码");
-while(passwdLen == passwd.Length)
+while (passwdLen == passwd.Length)
 {
-    if (passwd.Length % 4 == 0)
+    if (passwd.Length % 4 == 1)
     {
         Random rupC = new Random();
         char upC = (char)rupC.Next(65, 90);
@@ -34,14 +34,14 @@ while(passwdLen == passwd.Length)
         passwd = string.Concat(upC);
     }
 
-    if (passwd.Length % 4 == 0)
+    if (passwd.Length % 4 == 2)
     {
         Random rlowC = new Random();
         char lowC = (char)rlowC.Next(97, 122);
         passwd = string.Concat(lowC);
     }
 
-    if (passwd.Length % 4 == 0)
+    if (passwd.Length % 4 == 3)
     {
         Random r = new Random();
         int num = r.Next(10);
@@ -56,7 +56,7 @@ while(passwdLen == passwd.Length)
         passwd = string.Concat(spC);
     }
 
-    
+} 
 
 
 Console.WriteLine("选中并单击右键以复制密码\n" + passwd);
