@@ -23,55 +23,17 @@ namespace passWord
             {
                 while (passwd.Length < passwdLen)
                 {
-                   int uCbit = rabbit.Next(0,3);
+                   
+                    
                     if (passwd.Length == passwdLen)
                     {
                         break;
                     }
-                    else if (passwd.Length % 4 == uCbit)
-                    {
-                        Random rupC = new Random();
-                        char upC = (char)rupC.Next(65, 90);
-                        passwd += upC;
-
-                    }
-
-                    int lCbit = rabbit.Next(0,3);  
-                    if (passwd.Length == passwdLen)
-                    {
-                        break;
-                    }
-                    else if (passwd.Length % 4 == lCbit)
-                    {
-                        Random rlowC = new Random();
-                        char lowC = (char)rlowC.Next(97, 122);
-                        passwd += lowC;
-                    }
-
-                    int nbit = rabbit.Next(0,3);
-                    if (passwd.Length == passwdLen)
-                    {
-                        break;
-                    }
-                    else if (passwd.Length % 4 == nbit)
+                    else 
                     {
                         Random r = new Random();
-                        int num = r.Next(10);
-                        string numC = num.ToString();
-                        passwd += numC;
-                    }
-
-                    int spcb = rabbit.Next(0,3);
-                    if (passwd.Length == passwdLen)
-                    {
-                        break;
-                    }
-                    else if (passwd.Length % 4 == spcb)
-                    {
-                        Random r = new Random();
-                        int num = r.Next(10);
-                        char spC = spChars[num];
-                        passwd += spC;
+                        char rChar = (char)r.Next(33,126);
+                        passwd += rChar;
                     }
 
                 }

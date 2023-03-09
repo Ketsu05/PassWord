@@ -6,14 +6,15 @@ Console.WriteLine("是否需要乱序密码？Y/n");
 choice = Console.ReadLine();
 
 
-if (choice != "Y")
-{
+if (choice == "N" || choice == "n")
+{ 
     pwDefault pwd = new pwDefault();
     pwd.DefaultPassWord();
 }
-else if (choice == "N" || choice == "n")
+else 
 {
-    Console.WriteLine();
+    pwRandomBit pwr = new pwRandomBit();
+    pwr.RandomBitPassWord();
 }
 
 /* 

@@ -51,8 +51,7 @@ namespace passWord
                     else if (passwd.Length % 4 == 2)
                     {
                         Random r = new Random();
-                        int num = r.Next(10);
-                        string numC = num.ToString();
+                        char numC = (char)r.Next(49,57);
                         passwd += numC;
                     }
 
