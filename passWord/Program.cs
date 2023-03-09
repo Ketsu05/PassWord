@@ -2,26 +2,34 @@
 using passWord;
 
 string choice = "";
-Console.WriteLine("密码是否无序？Y/n");
-choice = Console.ReadLine();
-if (choice != "n" || choice != "N" || choice != "y" || choice != "Y")
+Boolean b = false;
+while (b != true)
 {
-    Console.WriteLine("请输入Y或N，不区分大小写");
-}
-else
-{
-    if (choice == "Y" || choice == "y")
+    Console.WriteLine("密码是否无序？Y/n");
+    choice = Console.ReadLine();
+    if (choice == "n" || choice == "N" || choice == "y" || choice == "Y")
     {
-        pwRandomBit pwr = new pwRandomBit();
-        pwr.RandomBitPassWord();
+        if (choice == "Y" || choice == "y")
+        {
+            pwRandomBit pwr = new pwRandomBit();
+            pwr.RandomBitPassWord();
+            break;
 
+        }
+        else
+        {
+            pwDefault pwd = new pwDefault();
+            pwd.DefaultPassWord();
+            break;
+        }
     }
     else
     {
-        pwDefault pwd = new pwDefault();
-        pwd.DefaultPassWord();
+        Console.WriteLine("请输入Y或N，不区分大小写");
     }
 }
+
+
 
 
 
