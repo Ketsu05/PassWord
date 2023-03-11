@@ -27,6 +27,7 @@ while (b != true)
                 rollBit.RollBitPassWord();
                 break;
         }
+
         break;
     }
     else

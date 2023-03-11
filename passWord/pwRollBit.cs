@@ -25,10 +25,7 @@ namespace passWord
             {
                 while (passwd.Length < passwdLen)
                 {
-                    if (passwd.Length == 4)
-                    {
-                        bit += 1;
-                    }
+                    
                     switch ((passwd.Length + bit) % 4)
                     {
                         case 0:
@@ -53,6 +50,11 @@ namespace passWord
                             char spC = spChars[num];
                             passwd += spC;
                             break;
+                    }
+
+                    if (passwd.Length == 4)
+                    {
+                        bit += 1;
                     }
                     
 
