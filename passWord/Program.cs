@@ -1,33 +1,41 @@
 ﻿using System;
 using passWord;
 
-string choice = "";
+string selection = "";
 Boolean b = false;
+int choice;
+
+
 while (b != true)
 {
-    Console.WriteLine("密码是否无序？Y/n");
-    choice = Console.ReadLine();
-    if (choice == "n" || choice == "N" || choice == "y" || choice == "Y")
-    {
-        if (choice == "Y" || choice == "y")
+    Console.WriteLine("请选择需要生成的密码类型\n1.有序 Ab1!Cd2@\n2.无序 Uj3uz0*&n\n3.滚动 Ab1!c2@\n\n请输入需要的类型编号");
+    if (selection.All(char.IsDigit)){
+        selection = Console.ReadLine();
+        choice = Convert.ToInt32(selection);
+        switch(choice)
         {
-            pwRandomBit pwr = new pwRandomBit();
-            pwr.RandomBitPassWord();
-            break;
-
+            case 1 : 
+                pwDefault pwd = new pwDefault();
+                pwd.DefaultPassWord();
+                break;
+            case 2 :
+                pwRandomBit pwr = new pwRandomBit();
+                pwr.RandomBitPassWord();   
+                break;
+            case 3 :
+                pwRollBit rollBit = new pwRollBit();
+                rollBit.RollBitPassWord();
+                break;
         }
-        else
-        {
-            pwDefault pwd = new pwDefault();
-            pwd.DefaultPassWord();
-            break;
-        }
+        break;
     }
     else
     {
-        Console.WriteLine("请输入Y或N，不区分大小写");
+        Console.WriteLine("请输入数字编号");
     }
 }
+
+
 
 
 

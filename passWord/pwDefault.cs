@@ -10,46 +10,45 @@ namespace passWord
     {
         public string DefaultPassWord()
         {
+
+
             string passLen = "";
             string passwd = "";
             char[] spChars = { '$', '~', '!', '@', '#', '%', '^', '&', '`', '-' };
-            Console.WriteLine("随机生成密码");
-            Console.WriteLine("请输入需要生成的密码位数");
+            Console.WriteLine("随机生成密码\n请输入需要生成的密码位数");
             passLen = Console.ReadLine();
             int passwdLen = Convert.ToInt32(passLen);
+            Random r = new Random();
+
+
             if (passwdLen >= 8 && passwdLen <= 128)
             {
                 while (passwd.Length < passwdLen)
                 {
-                    if (passwd.Length == passwdLen)
+                    switch (passwd.Length % 4)
                     {
-                        break;
-                    }
-                    else if (passwd.Length % 4 == 0)
-                    {
-                        Random rupC = new Random();
-                        char upC = (char)rupC.Next(65, 90);
-                        passwd += upC;
+                        case 0:
+                            char upC = (char)r.Next(65, 90);
+                            passwd += upC;
+                            break;
 
-                    }
-                    else if (passwd.Length % 4 == 1)
-                    {
-                        Random rlowC = new Random();
-                        char lowC = (char)rlowC.Next(97, 122);
-                        passwd += lowC;
-                    }
-                    else if (passwd.Length % 4 == 2)
-                    {
-                        Random r = new Random();
-                        char numC = (char)r.Next(49, 57);
-                        passwd += numC;
-                    }
-                    else if (passwd.Length % 4 == 3)
-                    {
-                        Random r = new Random();
-                        int num = r.Next(10);
-                        char spC = spChars[num];
-                        passwd += spC;
+                        case 1:
+                            
+                            char lowC = (char)r.Next(97, 122);
+                            passwd += lowC;
+                            break;
+
+                        case 2:
+                            
+                            char numC = (char)r.Next(49, 57);
+                            passwd += numC;
+                            break;
+
+                        case 3:
+                            int num = r.Next(10);
+                            char spC = spChars[num];
+                            passwd += spC;
+                            break;
                     }
 
                 }

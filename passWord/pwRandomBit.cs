@@ -13,11 +13,11 @@ namespace passWord
             string passLen = "";
             string passwd = "";
             char[] spChars = { '$', '~', '!', '@', '#', '%', '^', '&', '`', '-' };
-            Console.WriteLine("随机生成密码");
-            Console.WriteLine("请输入需要生成的密码位数");
+            Console.WriteLine("随机生成无序密码\n请输入需要生成的密码位数");
             passLen = Console.ReadLine();
             int passwdLen = Convert.ToInt32(passLen);
             Random rabbit = new Random();
+
 
             if (passwdLen >= 8 && passwdLen <= 128)
             {
