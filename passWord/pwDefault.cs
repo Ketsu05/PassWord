@@ -32,32 +32,17 @@ namespace passWord
                         passwd += upC;
 
                     }
-
-                    if (passwd.Length == passwdLen)
-                    {
-                        break;
-                    }
                     else if (passwd.Length % 4 == 1)
                     {
                         Random rlowC = new Random();
                         char lowC = (char)rlowC.Next(97, 122);
                         passwd += lowC;
                     }
-
-                    if (passwd.Length == passwdLen)
-                    {
-                        break;
-                    }
                     else if (passwd.Length % 4 == 2)
                     {
                         Random r = new Random();
-                        char numC = (char)r.Next(49,57);
+                        char numC = (char)r.Next(49, 57);
                         passwd += numC;
-                    }
-
-                    if (passwd.Length == passwdLen)
-                    {
-                        break;
                     }
                     else if (passwd.Length % 4 == 3)
                     {
